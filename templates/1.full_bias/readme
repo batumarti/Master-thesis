@@ -1,0 +1,31 @@
+---------------------------------------------
+TOTAL BIAS RECALCULATION - PLUMED DRIVER
+---------------------------------------------
+This procedure uses the PLUMED driver to read an existing trajectory and recalculate, the exact potential applied to the system. The calculation includes both the Metadynamics bias (pb.bias) and the harmonic walls bias (walls.bias), yielding the total bias required for a correct Boltzmann reweighting.
+
+## REQUIRED FILES:
+Link the following file in the directory
+
+- traj_comp.xtc --> trajectory to analyze
+- reference.pdb --> reference topology/structure
+- plumed.dat -->  PLUMED input file.
+  Modify the original file for passive reading:
+	- RESTART
+	- HEIGHT=0.0
+	- PACE = 100000000 (very high number)
+	- walls grouped under a single walls: label
+	- Customize the colvar file name
+- HILLS_{CVs} --> files with the history of the Gaussians for all the CVs.
+
+## DRIVER EXECUTION
+
+Run the following command:
+
+plumed driver --mf_xtc traj_comp.xtc --plumed plumed.dat
+
+## OUTPUT
+
+A colvar file (according to the customized name) with the last two columns containing:
+
+	- pb.bias --> the potential derived from Metadynamics in that specific frame
+	- walls.bias --> the potential derived from the walls

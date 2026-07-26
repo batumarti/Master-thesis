@@ -1,0 +1,30 @@
+# --- BATCH FES ANALYSIS CONFIGURATION FILE ---
+
+# General Parameters
+DATA_FILE="COLVAR_WEIGHTED"
+WEIGHT_COL="weight"
+KBT="2.477710"
+EQ_TIME="400000"
+BSIZE="200000"
+PLOT_WALLS="false"
+
+# Plotting Parameters
+EMAX="10.0"       # Only used for 2D plots: energy cutoff in kcal/mol
+PLOT_TITLE="Free Energy Surface"
+DIST_CVS=("d1" "d2" "dHP1_1" "dHP1_2")
+# Tasks List
+# Format for 1D: "CV1_NAME CV1_BINS"
+# Format for 2D: "CV1_NAME CV1_BINS CV2_NAME CV2_BINS"
+TASKS=(
+    "armsdC 80" 
+    "pbrmsd 150"
+    "armsdC 80 d1 50"
+    "armsdC 80 d2 50"
+    "armsdC 80 dHP1_1 50"
+    "armsdC 80 dHP1_2 50"
+    "pbrmsd 150 d1 50"
+    "pbrmsd 150 d2 50"
+    "pbrmsd 150 dHP1_1 50"
+    "pbrmsd 150 dHP1_2 50"
+    "armsdC 80 pbrmsd 150"
+)

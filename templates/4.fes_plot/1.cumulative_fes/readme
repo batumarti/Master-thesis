@@ -1,0 +1,28 @@
+-----------------------
+CUMULATIVE FES PLOTTING
+-----------------------
+Plots cumulative 1D Free Energy Surfaces over time to check the convergence of the simulation.
+Calculates histograms using PLUMED native units (kJ/mol and nm) and converts them to kcal/mol and Å for plotting.
+
+## REQUIRED FILES:
+Link the following file in the directory:
+
+        - colvar file with weights from step 2 (e.g., COLVAR_WEIGHTED)
+
+## CUMULATIVE FES
+
+module load python
+
+python plot_cumulative_fes.py -f COLVAR_WEIGHTED --cv armsdC --min 0.0 --max 1.5 --bins 100 --nm-to-a
+
+Additional useful flags:
+        --wcol      --> specify the weight column (default is "weight", use "weight_walls" if needed)
+        --eq-time   --> time to discard as equilibration in ps (default: 400000)
+        --step-time --> time step for cumulative blocks in ps (default: 200000)
+        -o          --> specify output name (default: cumulative_fes_<cv>.png)
+
+## OUTPUT
+
+A new image file:
+
+        - cumulative_fes_<cv>.png --> A plot showing the FES profile at different time slices.

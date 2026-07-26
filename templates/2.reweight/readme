@@ -1,0 +1,26 @@
+------------
+REWEIGHTING
+------------
+Calculates weights considering both the Metadynamics bias and the walls bias by including the --walls flag.
+
+## REQUIRED FILES:
+Link the following file in the directory:
+
+	- colvar file from step 1
+
+## REWEIGHTING
+
+module load python
+
+python append_weights.py -f colvar --walls
+
+##OUTPUT
+
+A new colvar file with two additional columns:
+
+	- weight --> calculated using only the primary bias (pb.bias)
+	- weight_walls --> calculated using the sum of the primary bias and walls.bias if --walls option is specified.
+
+
+This script was developed following the PLUMED MASTERCLASS
+https://www.plumed.org/doc-v2.7/user-doc/html/masterclass-21-1.html
