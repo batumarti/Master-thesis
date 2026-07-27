@@ -16,19 +16,19 @@ Ensure the following files are linked or available in the working directory:
 1. Inspect the "hills height vs. time" plot from the preliminary analysis to properly select the equilibration time.
 
 2. Customize the parameters inside find_block_dim.sh if necessary. Default variables are:
-'''
+```
         - MIN_BSIZE=10
         - NUM_POINTS=50
         - BIN_RESOLUTION=0.05
         - ORIGINAL_MASTER="colvar_weighted"
         - W_NAME="weight"  
         - KBT=2.477710
-'''
+```
 3. Run the bash script:
-'''
+```
 module load python
 ./find_block_dim.sh <CV_NAME> <EQUIL_TIME>
-'''
+```
 *Note: Replace <CV_NAME> with the exact name of the collective variable column in your colvar file (e.g., armsdC), and <EQUIL_TIME> with your chosen equilibration time.*
 
 ## OUTPUT

@@ -15,14 +15,14 @@ Ensure the following files are available in the working directory:
 ## SCRIPT EXECUTION
 
 1. To estimate the Effective Sample Size (ESS) based on independent encounters:
-'''
+```
 module load pyhon
-python calcu_neff.py'
-'''
+python calcu_neff.py`
+```
 2. Update the ESS_PER_REP variable in the plot_conan_bayesian.py script using the results from the previous step.
 
 3. To run the Bayesian ranking and generate the plots:
-'python plot_conan_bayesian.py'
+`python plot_conan_bayesian.py`
 
 ## OUTPUT
 

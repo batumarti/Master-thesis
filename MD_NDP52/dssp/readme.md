@@ -13,18 +13,18 @@ Ensure the following files are available in the working directory:
 ## EXECUTION
 
 1. Calculate the secondary structure using GROMACS DSSP:
-'gmx_mpi dssp -s md_prot.tpr -f center_traj.xtc -num scount.xvg -hmode dssp -o dssp_analysis.dat -dt 100'
+`gmx_mpi dssp -s md_prot.tpr -f center_traj.xtc -num scount.xvg -hmode dssp -o dssp_analysis.dat -dt 100`
 
 2. Generate the occurrence bar plots:
-'''
+```
 module load python
 python plot_occupancy_bars.py -l <1_or_2> -r <ATG8_range> <LIR_range>
-'''
-3. Extract the secondary structure assignments for the second chain and search for alpha-helical ('H') occurrences:
-'''
-cut -d'=' -f2 dssp_analysis.dat > dssp_lir.dat
+```
+3. Extract the secondary structure assignments for the second chain and search for alpha-helical (`H`) occurrences:
+```
+cut -d`=` -f2 dssp_analysis.dat > dssp_lir.dat
 grep H dssp_lir.dat
-'''
+```
 ## OUTPUT
 
 The execution of these commands will generate the following files:

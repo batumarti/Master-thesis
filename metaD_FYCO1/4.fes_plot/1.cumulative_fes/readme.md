@@ -11,10 +11,10 @@ Ensure the following file is linked or available in the working directory:
 ## EXECUTION
 
 Load the Python environment and execute the script:
-'''
+```
 module load python
 python plot_cumulative_fes.py -f COLVAR_WEIGHTED --cv armsdC --min 0.0 --max 1.5 --bins 100 --nm-to-a
-'''
+```
 *Additional useful flags:*
         --wcol      --> Specify the weight column (default is "weight", use "weight_walls" if needed).
         --eq-time   --> Time to discard as equilibration in ps (default: 400000).

@@ -12,10 +12,10 @@ Ensure the following files are linked or available in the working directory:
 ## EXECUTION
 
 Execute the reweighting script:
-'''
+```
 module load python
 python append_weights.py -f colvar --walls
-'''
+```
 ## OUTPUT
 
 The execution of the script will generate the following file:

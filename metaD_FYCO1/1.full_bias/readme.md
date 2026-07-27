@@ -14,9 +14,9 @@ Ensure the following files are linked or available in the working directory:
 ## EXECUTION
 
 Run the following command to execute the PLUMED driver:
-'plumed driver --mf_xtc traj_comp.xtc --plumed plumed.dat'
+`plumed driver --mf_xtc traj_comp.xtc --plumed plumed.dat`
 
 ## OUTPUT
 
 The execution of the driver will generate the following file:
-- <customized_colvar_name> --> A colvar file where the last two columns contain `pb.bias` (the potential derived from Metadynamics in that specific frame) and `walls.bias` (the potential derived from the harmonic walls).
+- <customized_colvar_name> --> A colvar file where the last two columns contain 'pb.bias' (the potential derived from Metadynamics in that specific frame) and 'walls.bias' (the potential derived from the harmonic walls).

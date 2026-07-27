@@ -18,10 +18,10 @@ Ensure the following files are linked or available in the working directory:
 1. Edit the configuration file (config_fes.yaml) to set your specific tasks and general parameters (e.g., KBT, BSIZE).
 
 2. Load the Python environment and execute the pipeline by running the main bash script:
-'''
+```
 module load python
 bash run_fes_pipeline.sh
-'''
+```
 ## CONFIGURATION FORMAT (config_fes.yaml)
 
 Tasks are dynamically read from the TASKS array in the configuration file. The pipeline automatically detects whether to run a 1D or 2D analysis based on the string format:

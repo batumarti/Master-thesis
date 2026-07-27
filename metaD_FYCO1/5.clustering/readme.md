@@ -15,25 +15,25 @@ Ensure the following files are available in the working directory:
 ## EXECUTION
 
 1. Make the protein whole to remove periodic boundary condition artifacts:
-'gmx trjconv -f traj_comp.xtc -s sim.tpr -pbc whole -o traj_whole.xtc'
+`gmx trjconv -f traj_comp.xtc -s sim.tpr -pbc whole -o traj_whole.xtc`
 (Select the "Protein" group when prompted).
 
 2. Center the trajectory with respect to a specific reference (e.g., LC3B) and compact the unit cell:
-'gmx trjconv -s sim.tpr -f traj_whole.xtc -o traj_center.xtc -n index.ndx -center -pbc mol -ur compact'
+`gmx trjconv -s sim.tpr -f traj_whole.xtc -o traj_center.xtc -n index.ndx -center -pbc mol -ur compact`
 (Select the reference group to center on, e.g., group 17, and then select the group to output, e.g., group 1 for the whole complex).
 
 3. Fit rotation and translation to the reference structure:
-'gmx trjconv -f traj_center.xtc -s sim.tpr -n index.ndx -fit rot+trans -o traj_fit.xtc'
+`gmx trjconv -f traj_center.xtc -s sim.tpr -n index.ndx -fit rot+trans -o traj_fit.xtc`
 (Select the "Protein" group when prompted).
 
 4. Perform RMSD-based clustering using the GROMOS method:
-'gmx cluster -f traj_fit.xtc -s sim.tpr -n index.ndx -method gromos -cutoff 0.3 -cl clusters.pdb -b 400000 -skip 500 -g cluster.log'
+`gmx cluster -f traj_fit.xtc -s sim.tpr -n index.ndx -method gromos -cutoff 0.3 -cl clusters.pdb -b 400000 -skip 500 -g cluster.log`
 
 5. Execute the reweighting script to calculate relative FES and populations:
-'''
+```
 module load python
 python weight_clusters.py -f COLVAR_WEIGHTED -c cluster.log -o clusters_reweighted.txt
-'''
+```
 
 ## OUTPUT
 
