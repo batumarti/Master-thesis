@@ -11,17 +11,17 @@ Ensure the following files are linked or available in the working directory:
 
 ## EXECUTION
 
-1. Execute the reweighting script:
+Execute the reweighting script:
+'''
 module load python
 python append_weights.py -f colvar --walls
-
+'''
 ## OUTPUT
 
 The execution of the script will generate the following file:
-
-        - colvar_weighted --> A new colvar file (default name) containing two additional columns:
-          * weight --> calculated using only the primary bias (pb.bias).
-          * weight_walls --> calculated using the sum of the primary bias and walls.bias (triggered by the --walls option).
+- colvar_weighted --> A new colvar file (default name) containing two additional columns:
+  * weight --> calculated using only the primary bias (pb.bias).
+  * weight_walls --> calculated using the sum of the primary bias and walls.bias (triggered by the --walls option).
 
 ---------------------------------------------
 REFERENCE:
