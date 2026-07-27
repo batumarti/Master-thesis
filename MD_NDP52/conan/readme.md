@@ -25,7 +25,6 @@ python3 plot_conan_bayesian.py
 ## OUTPUT
 
 The execution of the main script will generate the following files:
-
-        - Persistence_BayesianRank.png --> Dot plot of the top 20 actual contact frequencies ranked by their Bayesian reliability.
-        - Hub_Scores_Bayesian.png --> Dot plot of the normalized Bayesian Hub Scores for NDP52 LIR residues.
-        - Bayesian_Results.csv --> A dataset containing combined frequencies, alpha/beta parameters, structural thresholds, and posterior probabilities for all analyzed contacts.
+- Persistence_BayesianRank.png --> Dot plot of the top 20 actual contact frequencies ranked by their Bayesian reliability.
+- Hub_Scores_Bayesian.png --> Dot plot of the normalized Bayesian Hub Scores for NDP52 LIR residues.
+- Bayesian_Results.csv --> A dataset containing combined frequencies, alpha/beta parameters, structural thresholds, and posterior probabilities for all analyzed contacts.
