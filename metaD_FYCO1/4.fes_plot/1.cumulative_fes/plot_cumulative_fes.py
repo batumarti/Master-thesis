@@ -48,9 +48,14 @@ def main():
     if df_prod.empty:
         raise ValueError("No data left after discarding equilibration time.")
 
-    # 2. Define time steps for cumulative plot
+    # 2. Define time steps for cumulative plot (CORRETTO)
     max_time = df_prod['time'].max()
-    time_slices = np.arange(args.eq_time + args.step_time, max_time + args.step_time, args.step_time)
+    # Crea la lista degli step regolari (es. 600, 800, 1000...) fermandosi PRIMA del max_time
+    time_slices = np.arange(args.eq_time + args.step_time, max_time, args.step_time).tolist()
+    
+    # Aggiungi il max_time effettivo (es. 2280 ns) come ultimo step se non è già presente
+    if not time_slices or time_slices[-1] < max_time:
+        time_slices.append(max_time)
     
     # 3. Plot setup
     plt.figure(figsize=(8, 6))
@@ -88,10 +93,15 @@ def main():
         plot_x = bin_centers * 10.0 if args.nm_to_a else bin_centers # From nm to Å
             
         # Plot the curve (convert ps to ns for a cleaner label)
+        # Se è l'ultimo frame e non è un multiplo esatto, mostra i decimali se necessario, 
+        # ma per pulizia .1f o .0f funzionano bene. Modifichiamo per .1f se non è un numero intero di ns.
+        t_ns = t_slice / 1000
+        label_t = f"{t_ns:.0f}" if t_ns.is_integer() else f"{t_ns:.1f}"
+        
         plt.plot(plot_x, plot_fes, color=colors[i], label=f"Up to {t_slice/1000:.0f} ns")
 
     # 4. Final plot formatting
-    x_unit = "(Å)" if args.nm_to_a else "(PLUMED units)"
+    x_unit = "(Å)" if args.nm_to_a else ""
     plt.xlabel(f"{args.cv} {x_unit}")
     plt.ylabel("Free Energy (kcal/mol)")
     plt.title(f"Cumulative 1D Free Energy Surface for {args.cv}")

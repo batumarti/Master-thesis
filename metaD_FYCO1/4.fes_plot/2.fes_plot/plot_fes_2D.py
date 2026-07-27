@@ -3,6 +3,7 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 def load_fes_2d(filename):
     """
@@ -85,7 +86,7 @@ def main():
     levels_fes = np.linspace(0, args.emax, args.levels)
 
     # --- 1. FES Plot ---
-    cmap_fes = plt.cm.viridis
+    cmap_fes = mpl.colormaps['viridis'].copy()
     cmap_fes.set_bad(color='white')
 
     # Use contourf for smooth interpolated coloring
@@ -105,7 +106,7 @@ def main():
     # Mask errors where FES exceeds emax or is NaN/Inf
     masked_err = np.where((grid_fes <= args.emax) & (~np.isnan(grid_err)), grid_err, np.nan)
 
-    cmap_err = plt.cm.magma
+    cmap_err = mpl.colormaps['magma_r'].copy()
     cmap_err.set_bad(color='white')
 
     # Safely determine error bounds
