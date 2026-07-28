@@ -30,3 +30,10 @@ The execution of the main script will generate the following files:
 - Persistence_BayesianRank.png --> Dot plot of the top 20 actual contact frequencies ranked by their Bayesian reliability.
 - Hub_Scores_Bayesian.png --> Dot plot of the normalized Bayesian Hub Scores for NDP52 LIR residues.
 - Bayesian_Results.csv --> A dataset containing combined frequencies, alpha/beta parameters, structural thresholds, and posterior probabilities for all analyzed contacts.
+
+## DATA
+Original data available at:
+```
+/data/user/shared_projects/mavisp/CALCOCO2/simulations_analysis/complexes/lc3c/AF_125-147/replicate1/CHARMM36/model1/md/9.conan
+/data/user/shared_projects/mavisp/CALCOCO2/simulations_analysis/complexes/lc3c/AF_125-147/replicate1/CHARMM36/model2/md/9.conan
+```

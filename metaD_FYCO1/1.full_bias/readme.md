@@ -20,3 +20,10 @@ Run the following command to execute the PLUMED driver:
 
 The execution of the driver will generate the following file:
 - <customized_colvar_name> --> A colvar file where the last two columns contain 'pb.bias' (the potential derived from Metadynamics in that specific frame) and 'walls.bias' (the potential derived from the harmonic walls).
+
+## DATA
+Original trajectory available at:
+```
+/data/raw_data/computational_data/simulations_data/lir_atg8/lc3b/lir_complexes/fyco1/fyco1_5WRDac_1-120_1270-1294/mod_maxg_219/CHARMM22star/metad/metad_pb/pb_2CVs
+/data/raw_data/computational_data/simulations_data/lir_atg8/lc3b/lir_complexes/fyco1/fyco1_5WRDbd_1-120_1270-1294/mod_maxg_980/CHARMM22star/metad/metad_pb/pb_2CV_from_gefion/
+```
